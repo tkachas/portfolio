@@ -12,7 +12,7 @@
     .back {
         letter-spacing: 0.1em;
         background-color: #0f4c81;
-        position: absolute;
+        position: fixed;
         width: 100%;
         height: 100%;
         display: -webkit-box;
@@ -46,11 +46,12 @@
         -webkit-box-align: center;
             -ms-flex-align: center;
                 align-items: center;
+        position: relative;
     }
     .container {
         color: #e5e5e5;
-        height: 8.52rem;
-        font-size: 4.26rem;
+        height: 10rem;
+        font-size: 5rem;
         text-transform: uppercase;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -67,6 +68,12 @@
                 justify-content: center;
         /* border: 1px solid black; */
     }
+    @media screen and (max-width: 1171px) {
+        .container {
+            height: 10rem;
+            font-size: 4rem
+        }
+    }
     .text-animation {
         height: 50%;
         width: 100%;
@@ -74,7 +81,6 @@
         position: relative;
         top: 10%;
         /* border: 1px solid black; */
-
     }
     .first-text, .second-text{
         display: -webkit-box;
@@ -101,7 +107,6 @@
         background-color: #7546D7;
         height: 100%;
         width: 100%;
-
     }
     .text-animation > div {
         -webkit-animation: text-animation 5s infinite;
@@ -138,6 +143,7 @@
             -ms-flex-align: center;
                 align-items: center;
         background-color: #56a5bf;
+        /* opacity: 0.7 */
     }
     .arrow {
         position: absolute;
@@ -145,15 +151,103 @@
         pointer-events: none;
     }
     .start-button.clicked {
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
-        left: 0;
-        top:0;
+        /* width: 100%; */
+        height: 200%;
+        /* border-radius: 0; */
+        /* left: 0;
+        top:0; */
     }
     .start-button:active .arrow {
         width: 55px;
         height: 55px;
         /* left: 28px; */
     }
+    .main-window {
+        /* width: 90%; */
+        max-width: 1250px;
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+        /* background-color: rgba(255,255,255,0.1); */
+        border-radius: 20px;
+        display: flex;
+        /* box-shadow: inset 0px 2px 7px 2px rgba(0,0,0,0.5); */
+        /* grid-template-rows: 1fr 9fr; */
+        /* -ms-grid-row-align: center; */
+        flex-direction: column;
+        align-items: center;
+        overflow:auto;
+        /* padding-bottom: 20px; */
+        opacity:0;
+        pointer-events: none;
+        /* border: 1px solid red */
+    }    
+    .head {
+        font-size: 2rem;
+        height: 2rem;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        width: 600px;
+        color: white;
+        position: relative;
+        margin-top: 20px;
+    }
+    .head > p:hover {
+        transition: 0.3s ease;
+        text-decoration: underline;
+        cursor: pointer;
+        animation: textHover 1s infinite;
+    }
+    @keyframes textHover {
+        50% {
+            font-size: 2.1rem;
+        }
+        100% {
+            font-size: 2rem;
+        }
+    }
+    .content {
+        display: flex;
+        flex-flow: row wrap;
+        /* width: 100%; */
+        /* background-color: #fff; */
+        position: relative;
+        /* justify-content: center; */
+        align-content: flex-start;
+        /* overflow-y:auto; */
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        margin: 20px;
+        padding-bottom: 20px;
+        /* border-radius: 10px; */
+        top: 2.5%;
+        /* border: 1px solid red; */
+    }
+    .main-window::-webkit-scrollbar {
+        display: none;
+    }
+    @media screen and (max-width: 1250px) {
+        .content {
+            justify-content: center;
+        }
+    }
+    .project {
+        width: 400px;
+        height: 300px;
+        background-color: rgba(0,0,0,0.6);
+        /* background: linear-gradient(gray, white); */
+        margin: 1px;
+        /* margin-top: 0; */
+        /* border-radius: 10px; */
+        /* border: 1px solid red; */
+    }
+
 }
+
+/* .greeting {
+    display: none;
+}
+.start-button {
+    display: none;
+} */
